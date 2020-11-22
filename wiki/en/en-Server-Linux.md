@@ -31,6 +31,20 @@ The following guide is for running Jamulus as a "pure" server on **hardware with
 * _Jamulus user [Grigory](https://sourceforge.net/u/cidnurg/profile/) maintains a **[Docker image for Jamulus](https://hub.docker.com/r/grundic/jamulus)** which you can use._
 
 
+### Running a precompiled server
+
+
+If you plan to host Jamulus on a small server (e.g. a VPS) without all the build dependencies installed (they can take up to 1 GByte of and are not needed for running the server),
+you might consider compiling the binary inside a Docker container on your local machine and then pushing this binary onto the server.
+The Docker container used for compilation needs to use an image from the same distribution and version that the server uses.
+For example, if your server runs Debian Buster, start the container with `docker run -it debian:buster /bin/bash` and proceed with the steps in the next section about the compilation process.
+Your server will only need the following dependencies:
+
+```
+apt-get install libqt5core5a libqt5concurrent5 libqt5xml5 libqt5network5
+```
+
+
 ### Compile sources, create a user
 
 
